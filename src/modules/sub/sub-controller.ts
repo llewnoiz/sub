@@ -35,7 +35,7 @@ export class SubController implements OnModuleInit {
     console.log('Sub Result');
     console.log(result);
     const users = await this.subService.findAll();
-    console.log(users);
+    // console.log(users);
     return result;
   }
 
@@ -47,12 +47,10 @@ export class SubController implements OnModuleInit {
     // 3. 응답 확인
 
     // 4. 오류시 db 저장 rollback
-    
+
     const users = await this.subService.created(createUser);
     const result = await this.client.emit('pub-entity-created', { users });
     console.log('Sub Result');
-    
-    console.log(users);
     return result;
   }
 

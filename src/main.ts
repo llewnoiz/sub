@@ -2,8 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { microserviceConfig } from './modules/sub/kafka-config';
+import { initializeTransactionalContext } from 'typeorm-transactional';
+
 
 async function bootstrap() {
+  initializeTransactionalContext();
   const db = {
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT),
