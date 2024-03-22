@@ -5,11 +5,14 @@ export const microserviceConfig: KafkaOptions = {
 
   options: {
     client: {
-      brokers: ['127.0.0.1:9092'],
+      brokers: ['ws01.amanocloud.co.kr:9092'],
     },
     consumer: {
       groupId: 'sub-entity-created',
       allowAutoTopicCreation: true,
     },
+    producer: {
+      allowAutoTopicCreation: true,
+    }
   },
 };

@@ -17,8 +17,9 @@ async function bootstrap() {
 
   console.log('db');
   console.log(db);
-
+  
   const app = await NestFactory.create(AppModule);
+  app.enableCors({ origin: ['*'] });
   app.connectMicroservice<MicroserviceOptions>(microserviceConfig);
   await app.startAllMicroservices();
   await app.listen(4000);
